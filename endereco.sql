@@ -1,14 +1,16 @@
-CREATE TABLE endereco (
-num_seq INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-tipo varchar(5),
-logradouro varchar(45),
-numero int,
-complemento varchar(20),
-bairro varchar(45),
-cidade varchar(45),
-estado varchar(2),
-cep varchar(10),
-cliente_id int
+CREATE TABLE endereco(
+num_seq    INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+tipo       VARCHAR(5) NOT NULL, 
+logradouro VARCHAR(45) NOT NULL, 
+numero     INTEGER, 
+complemento VARCHAR(20), 
+bairro     VARCHAR(30), 
+cidade     VARCHAR(50),
+estado     VARCHAR(2), 
+cep        VARCHAR(10), 
+cliente_id INTEGER NOT NULL,
+CONSTRAINT endereco_cliente FOREIGN KEY 
+    (cliente_id) REFERENCES cliente(id)
 );
 
 insert into endereco values (null, 'rua', 'flores', '2', 'a', 'azul', 'sao paulo', 'sp', '03333-100', '1');
